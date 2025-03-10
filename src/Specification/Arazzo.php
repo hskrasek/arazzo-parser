@@ -7,11 +7,8 @@ namespace HSkrasek\Arazzo\Specification;
 final readonly class Arazzo
 {
     /**
-     * @param Version $arazzo
-     * @param Info $info
-     * @param SourceDescription[] $sourceDescriptions
-     * @param Workflow[] $workflows
-     * @param Components $components
+     * @param  SourceDescription[]  $sourceDescriptions
+     * @param  Workflow[]  $workflows
      */
     public function __construct(
         public Version $arazzo,

@@ -9,9 +9,7 @@ use HSkrasek\Arazzo\Specification\RequestBody\Replacement;
 final readonly class RequestBody
 {
     /**
-     * @param string $contentType
-     * @param string $payload
-     * @param Replacement[] $replacements
+     * @param  Replacement[]  $replacements
      */
     public function __construct(
         public string $contentType,
