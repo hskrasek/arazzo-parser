@@ -10,17 +10,11 @@ use HSkrasek\Arazzo\Specification\Actions\Success;
 final readonly class Step
 {
     /**
-     * @param string $stepId
-     * @param string $operationId
-     * @param Parameter[] $parameters
-     * @param string|null $workflowId
-     * @param string|null $description
-     * @param string|null $operationPath
-     * @param array|null $requestBody
-     * @param Criterion[] $successCriteria
-     * @param Success[] $onSuccess
-     * @param Failure[] $onFailure
-     * @param array<non-empty-string, string> $outputs
+     * @param  Parameter[]  $parameters
+     * @param  Criterion[]  $successCriteria
+     * @param  Success[]  $onSuccess
+     * @param  Failure[]  $onFailure
+     * @param  array<non-empty-string, string>  $outputs
      */
     public function __construct(
         public string $stepId,

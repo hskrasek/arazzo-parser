@@ -9,11 +9,7 @@ use HSkrasek\Arazzo\Specification\Criterion;
 final readonly class Success
 {
     /**
-     * @param string $name
-     * @param Type $type
-     * @param string|null $workflowId
-     * @param string|null $stepId
-     * @param Criterion[] $criteria
+     * @param  Criterion[]  $criteria
      */
     public function __construct(
         public string $name,

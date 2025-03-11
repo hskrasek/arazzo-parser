@@ -10,16 +10,12 @@ use HSkrasek\Arazzo\Specification\Actions\Success;
 final readonly class Workflow
 {
     /**
-     * @param string $workflowId
-     * @param Step[] $steps
-     * @param string|null $summary
-     * @param string|null $description
-     * @param array $inputs
-     * @param Success[] $successActions
-     * @param Failure[] $failureActions
-     * @param array<non-empty-string, string> $outputs
-     * @param Parameter[] $parameters
-     * @param list<string> $dependsOn
+     * @param  Step[]  $steps
+     * @param  Success[]  $successActions
+     * @param  Failure[]  $failureActions
+     * @param  array<non-empty-string, string>  $outputs
+     * @param  Parameter[]  $parameters
+     * @param  list<string>  $dependsOn
      */
     public function __construct(
         public string $workflowId,
