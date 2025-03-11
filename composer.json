@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "HSkrasek\\ArazzoParser\\": "src"
+            "HSkrasek\\Arazzo\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "HSkrasek\\ArazzoParser\\Tests\\": "tests"
+            "HSkrasek\\Arazzo\\Tests\\": "tests"
         }
     },
     "scripts": {
