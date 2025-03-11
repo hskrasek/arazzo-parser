@@ -9,7 +9,7 @@ final readonly class Info
     public function __construct(
         public string $title,
         public string $version,
-        public string $summary,
-        public string $description,
+        public ?string $summary = null,
+        public ?string $description = null,
     ) {}
 }

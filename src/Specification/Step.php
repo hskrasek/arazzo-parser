@@ -4,26 +4,35 @@ declare(strict_types=1);
 
 namespace HSkrasek\Arazzo\Specification;
 
+use HSkrasek\Arazzo\Specification\Actions\Failure;
+use HSkrasek\Arazzo\Specification\Actions\Success;
+
 final readonly class Step
 {
     /**
-     * @param  Parameter[]  $parameters
-     * @param  Criterion[]  $successCriteria
-     * @param  Actions\Success[]  $onSuccess
-     * @param  Actions\Failure[]  $onFailure
-     * @param  array<non-empty-string, string>  $outputs
+     * @param string $stepId
+     * @param string $operationId
+     * @param Parameter[] $parameters
+     * @param string|null $workflowId
+     * @param string|null $description
+     * @param string|null $operationPath
+     * @param array|null $requestBody
+     * @param Criterion[] $successCriteria
+     * @param Success[] $onSuccess
+     * @param Failure[] $onFailure
+     * @param array<non-empty-string, string> $outputs
      */
     public function __construct(
         public string $stepId,
-        public string $description,
         public string $operationId,
-        public string $operationPath,
-        public string $workflowId,
-        public array $parameters,
-        public array $requestBody,
-        public array $successCriteria,
-        public array $onSuccess,
-        public array $onFailure,
-        public array $outputs,
+        public ?string $description = null,
+        public ?string $workflowId = null,
+        public ?string $operationPath = null,
+        public ?array $parameters = [],
+        public ?array $requestBody = [],
+        public array $successCriteria = [],
+        public array $onSuccess = [],
+        public array $onFailure = [],
+        public array $outputs = [],
     ) {}
 }
