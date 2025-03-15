@@ -16,9 +16,8 @@ use function json_decode;
 final class Reader
 {
     /**
-     * @param SplFileObject $file
-     *
      * @return array<array-key, mixed>
+     *
      * @throws IOException
      */
     public static function fromFile(SplFileObject $file): array
@@ -37,15 +36,36 @@ final class Reader
     }
 
     /**
-     * @param string $jsonString
+     * @param resource $resource
      *
      * @return array<array-key, mixed>
+     * @throws IOException
+     */
+    public static function fromResource($resource): array
+    {
+        $contents = stream_get_contents($resource);
+        $meta = stream_get_meta_data($resource);
+
+        if ($contents === false) {
+            throw IOException::unableToReadFile(new SplFileObject($meta['uri']));
+        }
+
+        return match ($mimeType = mime_content_type($resource)) {
+            'application/json' => self::fromJson($contents),
+            'text/yaml' => self::fromYaml($contents),
+            default => throw IOException::unsupportedMimeType($meta['uri'], $mimeType ?: 'unknown'),
+        };
+    }
+
+    /**
+     * @return array<array-key, mixed>
+     *
      * @throws IOException
      */
     public static function fromJson(string $jsonString): array
     {
         try {
-            return (array)json_decode(
+            return (array) json_decode(
                 $jsonString,
                 associative: true,
                 flags: JSON_THROW_ON_ERROR,
@@ -56,15 +76,14 @@ final class Reader
     }
 
     /**
-     * @param string $yamlString
-     *
      * @return array<array-key, mixed>
+     *
      * @throws IOException
      */
     public static function fromYaml(string $yamlString): array
     {
         try {
-            return (array)Yaml::parse($yamlString);
+            return (array) Yaml::parse($yamlString);
         } catch (ParseException $exception) {
             throw IOException::invalidYaml($exception);
         }
@@ -80,7 +99,7 @@ final class Reader
         $file->seek(line: 0);
 
         $mimeType = $fileInfo->buffer(
-            (string)$file->fread(length: $file->getSize()),
+            (string) $file->fread(length: $file->getSize()),
             FILEINFO_MIME_TYPE,
         );
 

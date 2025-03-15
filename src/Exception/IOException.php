@@ -31,16 +31,11 @@ class IOException extends Exception implements Throwable
         );
     }
 
-    /**
-     * @param Throwable|null $exception
-     *
-     * @return self
-     */
     public static function invalidJson(?Throwable $exception = null): self
     {
         return new self(
             message: "Unable to parse invalid JSON: {$exception?->getMessage()}",
-            code: (int)$exception?->getCode(),
+            code: (int) $exception?->getCode(),
             previous: $exception,
         );
     }
@@ -49,7 +44,7 @@ class IOException extends Exception implements Throwable
     {
         return new self(
             message: "Unable to parse invalid YAML: {$exception?->getMessage()}",
-            code: (int)$exception?->getCode(),
+            code: (int) $exception?->getCode(),
             previous: $exception,
         );
     }
