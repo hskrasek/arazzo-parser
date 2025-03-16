@@ -108,7 +108,7 @@ final class Reader
 
         $mimeType = $fileInfo->buffer(
             (string) $file->fread(length: $file->getSize()),
-            FILEINFO_MIME_TYPE
+            FILEINFO_MIME_TYPE,
         );
 
         if ($mimeType === false) {

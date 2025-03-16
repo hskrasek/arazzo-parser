@@ -27,7 +27,7 @@ class IOException extends Exception implements Throwable
     public static function unsupportedMimeType(string $fileName, string $mimeType): self
     {
         return new self(
-            message: "The file '$fileName' has an unsupported MIME type '$mimeType'."
+            message: "The file '$fileName' has an unsupported MIME type '$mimeType'.",
         );
     }
 

@@ -29,7 +29,7 @@ describe('arazzo reader', tests: function () {
     });
 
     it('reads yaml strings', function () {
-        $file = (string)file_get_contents(__DIR__ . '/fixtures/bnpl-loan-application.yaml');
+        $file = (string) file_get_contents(__DIR__ . '/fixtures/bnpl-loan-application.yaml');
 
         $contents = Reader::fromYaml($file);
 
@@ -40,7 +40,7 @@ describe('arazzo reader', tests: function () {
     });
 
     it('reads json strings', function () {
-        $file = (string)file_get_contents(__DIR__ . '/fixtures/bnpl-loan-application.json');
+        $file = (string) file_get_contents(__DIR__ . '/fixtures/bnpl-loan-application.json');
 
         $contents = Reader::fromJson($file);
 
@@ -60,7 +60,7 @@ describe('arazzo reader', tests: function () {
             invalid-section
               key1: value1
               key2: value2
-            YAML
+            YAML,
         );
     })->throws(IOException::class);
 
