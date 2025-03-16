@@ -1,9 +1,11 @@
 {
     "name": "hskrasek/arazzo-parser",
-    "description": "This is my package arazzo-parser",
+    "description": "Parse Arazzo specifications into plain old PHP objects.",
     "keywords": [
-        "HSkrasek",
-        "arazzo-parser"
+        "oai",
+        "openapi",
+        "arazzo",
+        "parser"
     ],
     "homepage": "https://github.com/hskrasek/arazzo-parser",
     "license": "AGPL-3.0-or-later",
