@@ -1,0 +1,11 @@
+includes:
+    - vendor/phpstan/phpstan-mockery/extension.neon
+    - vendor/pestphp/pest/extension.neon
+
+parameters:
+    excludePaths:
+        - tests/ArchTest.php
+    level: max
+    paths:
+        - src
+        - tests
