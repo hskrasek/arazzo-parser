@@ -11,10 +11,10 @@ final readonly class Workflow
 {
     /**
      * @param  Step[]  $steps
-     * @param  array<non-empty-string, string|array<non-empty-string, string>> $inputs
+     * @param  array<non-empty-string, string|array<array-key, string|array<array-key, mixed>>> $inputs
      * @param  Success[]  $successActions
      * @param  Failure[]  $failureActions
-     * @param  array<non-empty-string, string>  $outputs
+     * @param  array<array-key, string>  $outputs
      * @param  Parameter[]  $parameters
      * @param  list<string>  $dependsOn
      */

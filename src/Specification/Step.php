@@ -15,7 +15,7 @@ final readonly class Step
      * @param  Criterion[]  $successCriteria
      * @param  Success[]  $onSuccess
      * @param  Failure[]  $onFailure
-     * @param  array<non-empty-string, string>  $outputs
+     * @param  array<array-key, string>  $outputs
      */
     public function __construct(
         public string $stepId,
