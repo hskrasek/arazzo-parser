@@ -11,6 +11,7 @@ final readonly class Workflow
 {
     /**
      * @param  Step[]  $steps
+     * @param  array<non-empty-string, string|array<non-empty-string, string>> $inputs
      * @param  Success[]  $successActions
      * @param  Failure[]  $failureActions
      * @param  array<non-empty-string, string>  $outputs

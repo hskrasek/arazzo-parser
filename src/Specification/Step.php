@@ -11,6 +11,7 @@ final readonly class Step
 {
     /**
      * @param  Parameter[]  $parameters
+     * @param  array<array-key, mixed> $requestBody
      * @param  Criterion[]  $successCriteria
      * @param  Success[]  $onSuccess
      * @param  Failure[]  $onFailure

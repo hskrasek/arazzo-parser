@@ -3,9 +3,6 @@ includes:
     - vendor/pestphp/pest/extension.neon
 
 parameters:
-    excludePaths:
-        - tests/ArchTest.php
     level: max
     paths:
         - src
-        - tests
