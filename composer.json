@@ -6,7 +6,7 @@
         "arazzo-parser"
     ],
     "homepage": "https://github.com/hskrasek/arazzo-parser",
-    "license": "MIT",
+    "license": "AGPL-3.0-or-later",
     "authors": [
         {
             "name": "Hunter Skrasek",
@@ -16,12 +16,20 @@
     ],
     "require": {
         "php": "^8.4",
-        "justinrainbow/json-schema": "^6.2"
+        "cuyz/valinor": "^1.14",
+        "justinrainbow/json-schema": "^6.2",
+        "symfony/yaml": "^7.2",
+        "ext-fileinfo": "*"
     },
     "require-dev": {
-        "pestphp/pest": "^3.0",
         "laravel/pint": "^1.0",
-        "spatie/ray": "^1.28"
+        "madewithlove/license-checker": "^1.6",
+        "mockery/mockery": "^1.6",
+        "pestphp/pest": "^3.0",
+        "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan-mockery": "^2.0",
+        "roave/security-advisories": "dev-latest",
+        "spatie/ray": "^1.41"
     },
     "autoload": {
         "psr-4": {
@@ -35,7 +43,7 @@
     },
     "scripts": {
         "test": "vendor/bin/pest",
-            "test-coverage": "vendor/bin/pest --coverage",
+        "test-coverage": "vendor/bin/pest --coverage",
         "format": "vendor/bin/pint"
     },
     "config": {
