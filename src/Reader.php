@@ -50,7 +50,15 @@ final class Reader
             throw IOException::unableToReadFile(new SplFileObject($meta['uri']));
         }
 
-        return match ($mimeType = mime_content_type($resource)) {
+        $mimeType = mime_content_type($resource);
+
+        if ($mimeType === false || $mimeType === 'text/plain') {
+            $mimeType = self::mimeTypeForExtension(
+                extension: pathinfo($meta['uri'], PATHINFO_EXTENSION),
+            );
+        }
+
+        return match ($mimeType) {
             'application/json' => self::fromJson($contents),
             'text/yaml' => self::fromYaml($contents),
             default => throw IOException::unsupportedMimeType($meta['uri'], $mimeType ?: 'unknown'),
@@ -100,13 +108,32 @@ final class Reader
 
         $mimeType = $fileInfo->buffer(
             (string) $file->fread(length: $file->getSize()),
-            FILEINFO_MIME_TYPE,
+            FILEINFO_MIME_TYPE
         );
 
         if ($mimeType === false) {
             throw IOException::unableToExtractMimeType($file);
         }
 
-        return $mimeType;
+        if ($mimeType !== 'text/plain') {
+            return $mimeType;
+        }
+
+        $extension = $file->getExtension();
+
+        return self::mimeTypeForExtension($extension);
+    }
+
+    /**
+     * @param string $extension
+     * @return string
+     */
+    public static function mimeTypeForExtension(string $extension): string
+    {
+        return match ($extension) {
+            'json' => 'application/json',
+            'yaml', 'yml' => 'text/yaml',
+            default => 'text/plain',
+        };
     }
 }
