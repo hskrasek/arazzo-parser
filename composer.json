@@ -27,7 +27,7 @@
         "laravel/pint": "^1.0",
         "madewithlove/license-checker": "^1.6",
         "mockery/mockery": "^1.6",
-        "pestphp/pest": "^3.0",
+        "pestphp/pest": "^4.1",
         "phpstan/phpstan": "^2.1",
         "phpstan/phpstan-mockery": "^2.0",
         "roave/security-advisories": "dev-latest",
