@@ -18,7 +18,7 @@
     ],
     "require": {
         "php": "^8.4",
-        "cuyz/valinor": "^1.14",
+        "cuyz/valinor": "^2.2",
         "justinrainbow/json-schema": "^6.2",
         "symfony/yaml": "^7.2",
         "ext-fileinfo": "*"
